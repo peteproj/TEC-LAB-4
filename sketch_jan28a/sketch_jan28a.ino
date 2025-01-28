@@ -19,7 +19,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   double temp = dht.readTemperature(); //reads temp
   double humidity = dht.readHumidity(); //reads humidity levels
-  temp = temp * 9 / 5;
+  temp = temp * 1.8 + 32;
   u8x8.setFont(u8x8_font_chroma48medium8_r);
   u8x8.setCursor(0, 0);
   u8x8.println("Hello World!");
@@ -31,6 +31,9 @@ void loop() {
   u8x8.println("%");
 
   if(humidity > 70){
-
+    tone(5, 600, 700);
+    }
+  else{
+    noTone(5);
   }
 }
